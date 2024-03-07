@@ -1,6 +1,19 @@
-#include <stdio.h>
-#include <string.h>
+/*
+* Penanggung Jawab  : AMR FADHILAH ABIYYU ALIF BASYSYAR
+* NIM               : 231524002
+* Kelompok          : A1
+*/
 
+#include "KonversiMataUang.h"
+
+/* Daftar Negara dari Mata Uang yang Dikonversikan */
+char* NAMA_NEGARA[] = {
+                        "Australia", "Brunei Darussalam", "Kanada", "Swiss", "Tiongkok (Offshore)", 
+                        "Tiongkok (Onshore)", "Denmark", "Eurozone", "Inggris", "Hong Kong", 
+                        "Jepang", "Korea Selatan", "Kuwait", "Laos", "Malaysia", 
+                        "Norwegia", "Selandia Baru", "Papua Nugini", "Filipina", "Arab Saudi", 
+                        "Swedia", "Singapura", "Thailand", "Amerika Serikat", "Vietnam"
+                      };
 
 /* Daftar Mata Uang yang Bisa Dikonversikan Kursnya */
 char* MATA_UANG[] = {
@@ -131,4 +144,57 @@ void formatMataUang(double nominal) {
     }
     temp = (unsigned long long int) nominal;
     printf(",%.0f", ((nominal - (double) temp)*100));
+}
+
+
+/**
+ * @brief Mencetak Hasil Konversi Mata Uang
+ * 
+ * @param mata_uang 
+ * @param nominal 
+ * @param keRupiah 
+ */
+void cetakHasilKonversi(char *mata_uang, double nominal, bool keRupiah) {
+    printf("\033[1;34mHasil Konversi: ");
+    printf("\033[1;33m");
+    if (keRupiah) {
+        formatMataUang(nominal);
+        printf(" %s = ", mata_uang);
+        formatMataUang(konversiKeRupiah(mata_uang, nominal));
+        printf(" IDR\n");
+    } else {
+        formatMataUang(nominal);
+        printf(" IDR = ");
+        formatMataUang(konversiKeAsing(mata_uang, nominal));
+        printf(" %s\n", mata_uang);
+    }
+    printf("\033[0m");
+}
+
+
+/**
+ * @brief Menampilkan Menu untuk Melakukan Konversi Kurs Mata Uang
+ * 
+ */
+void tampilMenuKonversi() {
+    printf("\033[1;34m%5s\t%-20s\t%s\033[0m\n", "[ $ ]", "Nama Negara", "Kurs Mata Uang");
+    for (int i = 0; i < 25; i++) {
+        printf("[%s]\t%-20s\tRp. ", MATA_UANG[i], NAMA_NEGARA[i]);
+        formatMataUang(KURS_MATA_UANG[i]);
+        printf("\n");
+    }
+
+    char *input;
+    int pilihan;
+    double nominal;
+    input = (char *)malloc(3*sizeof(char));
+    printf("\033[1;34mMasukkan Mata Uang yang Ingin Dilakukan Konversi: \033[0m");
+    scanf(" %s", input);
+    printf("\033[1;34m[1]\033[0m Konversi dari Rupiah ke Mata Uang Asing\n\033[1;34m[2]\033[0m Konversi dari Mata Uang Asing ke Rupiah\n");
+    printf("\033[1;34mMasukkan Pilihanmu: \033[0m");
+    scanf(" %d", &pilihan);
+    toUpperCase(input);
+    printf("\033[1;34mMasukan Nominal %s yang Ingin Dikonversikan ke %s: \033[0m", (pilihan==1 ? "IDR" : input), (pilihan==1 ? input : "IDR"));
+    scanf(" %lf", &nominal);
+    cetakHasilKonversi(input, nominal, pilihan==2);
 }
