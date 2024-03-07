@@ -76,7 +76,26 @@ void catatTransaksiMasuk(User *user){
 			user->saldo.bank += transaksi.nominal;
 		}	
 	}
-		
 }
 
+void displayTrMasuk(Masuk transaksi_masuk){
+	printf("------------------\n";
+	printf("Transaksi Berhasil\n");
+	printf("------------------\n";
+
+	showTanggal(transaksi_masuk.waktu);
+	
+	if (transaksi_masuk.sumber_dana == 1)
+	{
+		printf("Sumber dana		:	Dompet Digital\n");
+	} 
+	else 
+	{
+		printf("Sumber dana		:	Bank\n");
+	}
+	
+	printf("Nominal			:	%f\n", transaksi_masuk.nominal);
+	
+	printf("=======Menabung Pangkal Kaya======");
+}
 
