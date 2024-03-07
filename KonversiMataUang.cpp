@@ -33,8 +33,8 @@ char* MATA_UANG[] = {
 
 
 /* Daftar Kura Mata Uang Berdasarkan List Mata Uang di Atas */
-/* Diambil pada tanggal 07/03/2024 pada pukul 14:30 */
-float KURS_MATA_UANG[] = { 
+/* Diambil pada tanggal 07/03/2024 pada pukul 14:30 dari Website Bank Indonesia */
+double KURS_MATA_UANG[] = { 
                             10192.32,     // AUD - Australia
                             11660.99,     // BND - Brunei Darussalam
                             11506.61,     // CAD - Kanada
@@ -87,9 +87,9 @@ int searchIndex(char *mata_uang) {
  * 
  * @param mata_uang 
  * @param nominal_mata_uang 
- * @return float 
+ * @return double 
  */
-float konversiKeRupiah(char *mata_uang, float nominal_mata_uang) {
+double konversiKeRupiah(char *mata_uang, double nominal_mata_uang) {
     return nominal_mata_uang * KURS_MATA_UANG[searchIndex(mata_uang)];
 }
 
@@ -99,8 +99,36 @@ float konversiKeRupiah(char *mata_uang, float nominal_mata_uang) {
  * 
  * @param mata_uang 
  * @param nominal_rupiah 
- * @return float 
+ * @return double 
  */
-float konversiKeAsing(char *mata_uang, float nominal_rupiah) {
+double konversiKeAsing(char *mata_uang, double nominal_rupiah) {
     return nominal_rupiah / KURS_MATA_UANG[searchIndex(mata_uang)];
+}
+
+
+/**
+ * @brief Mencetak Mata Uang dengan Format Penulisan Mata Uang pada Umumnya
+ * 
+ * @param nominal 
+ */
+void formatMataUang(double nominal) {
+    unsigned long long int digit[20];
+    int i = 0;
+    unsigned long long int temp = (unsigned long long int) nominal;
+    if (temp == 0) printf("0");
+    while (temp != 0) {
+        digit[i] = temp % 10;
+        temp = temp / 10;
+        i++;
+    }
+    i--;
+    while (i >= 0) {
+        printf("%lld", digit[i]);
+        if (i % 3 == 0 && i != 0) {
+            printf(".");
+        }
+        i--;
+    }
+    temp = (unsigned long long int) nominal;
+    printf(",%.0f", ((nominal - (double) temp)*100));
 }
