@@ -99,3 +99,19 @@ void displayTrMasuk(Masuk transaksi_masuk){
 	printf("=======Menabung Pangkal Kaya======");
 }
 
+void saveToFile(User *user, const char *nama_file)
+{
+    FILE *file = fopen(Pemasukan.DAT, "wb");
+    if (file == NULL)
+    {
+        printf("Gagal membuka file %s\n", nama_file);
+        return;
+    }
+
+    fwrite(user, sizeof(User), 1, file);
+
+    fclose(file);
+}
+
+
+
