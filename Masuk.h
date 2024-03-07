@@ -3,7 +3,6 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include <conio.h>
 #include <windows.h>
 #include "Tanggal.h"
 
@@ -18,7 +17,7 @@ typedef struct Masuk
  * @brief Membuat instance dari objek Tanggal
  *
  * @param transaksi_masuk - Alamat dari instance yang akan diinisialisasi
- * @param waktu_transaksi - Waktu kapan dilakukannya transaksi
+ * @param waktu_transaksi - Waktu dilakukannya transaksi
  * @param sumber_dana - [1. Dompet Digital], [2. Rekening Bank]
  * @param nominal - Nominal uang yang dideposit
  */
@@ -38,8 +37,8 @@ Masuk inputMasuk()
 {
     Masuk transaksi_masuk;
 
-    int sumber_dana;
-    float nominal;
+    int sumber_dana = 0;
+    float nominal = -999;
     Tanggal waktu_transaksi;
 
     waktu_transaksi = inputTanggal();
@@ -56,7 +55,7 @@ Masuk inputMasuk()
         {
             // todo HEADER
             system("cls");
-            printf("ERROR INPUT: Tanggal yang dimasukkan tidak valid.\n");
+            printf("ERROR INPUT: Input yang dimasukkan tidak valid.\n");
             continue;
         }
 
@@ -73,7 +72,7 @@ Masuk inputMasuk()
         if (nominal < 0) {
             // todo HEADER
             system("cls");
-            printf("ERROR INPUT: Tanggal yang dimasukkan tidak valid.\n");
+            printf("ERROR INPUT: Input yang dimasukkan tidak valid.\n");
         }
     }
 
