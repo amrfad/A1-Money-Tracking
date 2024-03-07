@@ -143,7 +143,7 @@ void formatMataUang(double nominal) {
         i--;
     }
     temp = (unsigned long long int) nominal;
-    printf(",%.0f", ((nominal - (double) temp)*100));
+    printf(",%02.0f", ((nominal - (double) temp)*100));
 }
 
 
@@ -179,7 +179,7 @@ void cetakHasilKonversi(char *mata_uang, double nominal, bool keRupiah) {
 void tampilMenuKonversi() {
     printf("\033[1;34m%5s\t%-20s\t%s\033[0m\n", "[ $ ]", "Nama Negara", "Kurs Mata Uang");
     for (int i = 0; i < 25; i++) {
-        printf("[%s]\t%-20s\tRp. ", MATA_UANG[i], NAMA_NEGARA[i]);
+        printf("\033[1;32m[%s]\033[0m\t%-20s\tRp. ", MATA_UANG[i], NAMA_NEGARA[i]);
         formatMataUang(KURS_MATA_UANG[i]);
         printf("\n");
     }
@@ -190,7 +190,7 @@ void tampilMenuKonversi() {
     input = (char *)malloc(3*sizeof(char));
     printf("\033[1;34mMasukkan Mata Uang yang Ingin Dilakukan Konversi: \033[0m");
     scanf(" %s", input);
-    printf("\033[1;34m[1]\033[0m Konversi dari Rupiah ke Mata Uang Asing\n\033[1;34m[2]\033[0m Konversi dari Mata Uang Asing ke Rupiah\n");
+    printf("\033[1;32m[1]\033[0m Konversi dari Rupiah ke Mata Uang Asing\n\033[1;32m[2]\033[0m Konversi dari Mata Uang Asing ke Rupiah\n");
     printf("\033[1;34mMasukkan Pilihanmu: \033[0m");
     scanf(" %d", &pilihan);
     toUpperCase(input);
