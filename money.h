@@ -1,9 +1,10 @@
 #ifndef money_h
 #define money_h
+
 #include <stdio.h>
+#include <windows.h>
 #include <stdlib.h>
 #include "Tanggal.h"
-
 
 
 typedef struct SaldoUser
@@ -42,10 +43,10 @@ typedef struct User
     int jumlahTransaksiKeluar;
 } User;
 
-catatTransaksiMasuk(User *user);
-catatTransaksiKeluar(User *user);
-displayTrMasuk();
-displayTrKeluar();
+void catatTransaksiMasuk(User *user);
+void catatTransaksiKeluar(User *user);
+void displayTrMasuk();
+void displayTrKeluar();
 
 /*
 Fitur Sejauh Ini

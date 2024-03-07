@@ -8,7 +8,7 @@
 #define MAX_KELUAR 730
 
 
-void catatKeuangan(){
+void catatKeuangan(User *user){
 	printf("-------------------------------\n");
 	printf("Ayo Catat Keuangan Anda di Sini\n");
 	printf("-------------------------------\n");
@@ -22,14 +22,14 @@ void catatKeuangan(){
 	
 	switch (pilihan){
 		case 1: //Pemasukan
-		catatTransaksiMasuk(&user);
+		catatTransaksiMasuk(user);
 		system("cls");
-		saveToFileMasuk(&user);
+		//saveToFileMasuk(user);
 		displayTrMasuk();
 		break;
 		
 		case 2: //Pengeluaran
-		catatTransaksiKeluar(&user);
+		catatTransaksiKeluar(user);
 		system("cls");
 		displayTrKeluar();
 	}
@@ -82,9 +82,9 @@ void catatTransaksiMasuk(User *user){
 }
 
 void displayTrMasuk(Masuk transaksi_masuk){
-	printf("------------------\n";
+	printf("------------------\n");
 	printf("Transaksi Berhasil\n");
-	printf("------------------\n";
+	printf("------------------\n");
 
 	showTanggal(transaksi_masuk.waktu);
 	
@@ -104,10 +104,10 @@ void displayTrMasuk(Masuk transaksi_masuk){
 
 void saveToFileMasuk(User *user)
 {
-    FILE *file = fopen(Pemasukan.DAT, "wb");
+    FILE *file = fopen("Pemasukan.DAT", "wb");
     if (file == NULL)
     {
-        printf("Gagal membuka file\n",);
+        printf("Gagal membuka file\n");
         return;
     }
 
@@ -181,9 +181,9 @@ void catatTransaksiKeluar(User *user){
 }
 
 void displayTrKeluar(Keluar transaksi_keluar){
-	printf("------------------\n";
+	printf("------------------\n");
 	printf("Transaksi Berhasil\n");
-	printf("------------------\n";
+	printf("------------------\n");
 
 	showTanggal(transaksi_keluar.waktu);
 	
@@ -196,7 +196,7 @@ void displayTrKeluar(Keluar transaksi_keluar){
 		printf("Sumber dana		:	Bank\n");
 	}
 	
-	printf("Nominal			:	%f\n", transaksi_masuk.nominal);
+	printf("Nominal			:	%f\n", transaksi_keluar.nominal);
 	
 	switch (transaksi_keluar.kategori){
 		case 1 :
@@ -221,10 +221,10 @@ void displayTrKeluar(Keluar transaksi_keluar){
 
 void saveToFileKeluar(User *user)
 {
-    FILE *file = fopen(Pengeluaran.DAT, "wb");
+    FILE *file = fopen("Pengeluaran.DAT", "wb");
     if (file == NULL)
     {
-        printf("Gagal membuka file\n",);
+        printf("Gagal membuka file\n");
         return;
     }
 
@@ -235,10 +235,10 @@ void saveToFileKeluar(User *user)
 
 void readFromFileMasuk(User *user)
 {
-	FILE *file = fopen(Pemasukan.DAT, "rb");
+	FILE *file = fopen("Pemasukan.DAT", "rb");
 	if (file == NULL)
     {
-        printf("Gagal membuka file\n",);
+        printf("Gagal membuka file\n");
         return;
     }
     
@@ -249,10 +249,10 @@ void readFromFileMasuk(User *user)
 
 void readFromFileKeluar(User *user)
 {
-	FILE *file = fopen(Pengeluaran.DAT, "rb");
+	FILE *file = fopen("Pengeluaran.DAT", "rb");
 	if (file == NULL)
     {
-        printf("Gagal membuka file\n",);
+        printf("Gagal membuka file\n");
         return;
     }
     
@@ -261,14 +261,14 @@ void readFromFileKeluar(User *user)
     fclose(file);
 }
 
-void tampilkan_detail_transaksi(User *user)
+void displayDetailTransaksi(User *user)
 {
     printf("\n========= DETAIL TRANSAKSI =========\n");
-    printf("Jumlah Transaksi Masuk: %d\n", user->jumlah_transaksi_masuk);
-    printf("Jumlah Transaksi Keluar: %d\n\n", user->jumlah_transaksi_keluar);
+    printf("Jumlah Transaksi Masuk: %d\n", user->jumlahTransaksiMasuk);
+    printf("Jumlah Transaksi Keluar: %d\n\n", user->jumlahTransaksiKeluar);
 
     printf("===== Transaksi Masuk =====\n");
-    for (int i = 0; i < user->jumlah_transaksi_masuk; i++)
+    for (int i = 0; i < user->jumlahTransaksiMasuk; i++)
     {
         printf("Transaksi ke-%d\n", i + 1);
 		showTanggal(user->transaksi_masuk[i].waktu);
@@ -277,7 +277,7 @@ void tampilkan_detail_transaksi(User *user)
     }
 
     printf("===== Transaksi Keluar =====\n");
-    for (int i = 0; i < user->jumlah_transaksi_keluar; i++)
+    for (int i = 0; i < user->jumlahTransaksiKeluar; i++)
     {
         printf("Transaksi ke-%d\n", i + 1);
         showTanggal(user->transaksi_keluar[i].waktu);
