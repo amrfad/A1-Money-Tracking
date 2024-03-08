@@ -2,7 +2,7 @@
 #define Keluar_H
 
 #include <stdio.h>
-#include "Tanggal.h"
+#include "header.h"
 
 void newTanggal(Tanggal *record, int tanggal, int bulan, int tahun)
 {
