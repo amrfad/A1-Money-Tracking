@@ -37,6 +37,8 @@ bool isSameMonth(Tanggal tanggal1, Tanggal tanggal2) {
 void rekapBulananMasuk(User user) {
     Tanggal tanggalRekap;
 
+    printf("Masukkan tahun yang ingin ditampilkan data rekapnya. (Contoh: 2023)\n>> ");
+    scanf("%d", &(tanggalRekap.tahun));
     printf("Masukkan bulan yang ingin ditampilkan data rekapnya. (Silakan masukkan angkanya saja)\n");
     printf("1. Januari\n");
     printf("2. Februari\n");
@@ -128,6 +130,8 @@ void rekapBulananMasuk(User user) {
 void rekapBulananKeluar(User user) {
     Tanggal tanggalRekap;
     
+    printf("Masukkan tahun yang ingin ditampilkan data rekapnya. (Contoh: 2023)\n>> ");
+    scanf("%d", &(tanggalRekap.tahun));
     printf("Masukkan bulan yang ingin ditampilkan data rekapnya. (Silakan masukkan angkanya saja)\n");
     printf("1. Januari\n");
     printf("2. Februari\n");
