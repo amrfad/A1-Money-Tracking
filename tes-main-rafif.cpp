@@ -16,7 +16,6 @@ int main() {
 
     aUser1.transaksi_masuk[0] = {tanggal4, 1, 650000};
     aUser1.transaksi_masuk[1] = {tanggal2, 0, 450000};
-    aUser1.transaksi_masuk[2] = {tanggal1, 1, 500000};
     aUser1.transaksi_masuk[3] = {tanggal6, 0, 900000};
     aUser1.transaksi_masuk[4] = {tanggal5, 0, 1000000};
     aUser1.transaksi_masuk[5] = {tanggal3, 0, 450000};
