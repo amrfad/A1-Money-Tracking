@@ -8,8 +8,8 @@
  * @copyright Copyright (c) 2024 KELOMPOK A1
  * 
  */
-
-#include "KonversiMataUang.h"
+#include <stdio.h>
+#include "Money.h"
 
 /* Daftar Negara dari Mata Uang yang Dikonversikan */
 char* NAMA_NEGARA[] = {

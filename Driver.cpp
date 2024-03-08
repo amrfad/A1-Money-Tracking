@@ -8,10 +8,10 @@
  * @copyright Copyright (c) 2024 Kelompok A1
  * 
  */
-
+#include <stdio.h>
+#include <windows.h>
 #include <conio.h>
-#include "KonversiMataUang.h"
-#include "RekapHarian.h"
+#include "Money.h"
 
 int main() {
     /////////////////////////////////////////////////////////////////// DUMMY DATA

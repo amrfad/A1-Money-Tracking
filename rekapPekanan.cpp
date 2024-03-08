@@ -11,35 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "money.h"
-
-/**
- * @brief Mencetak Mata Uang dengan Format Penulisan Mata Uang pada Umumnya
- * 
- * @param nominal 
- */
-void formatMataUang(double nominal) {
-    unsigned long long int digit[20];
-    int i = 0;
-    unsigned long long int temp = (unsigned long long int) nominal;
-    if (temp == 0) printf("0");
-    while (temp != 0) {
-        digit[i] = temp % 10;
-        temp = temp / 10;
-        i++;
-    }
-    i--;
-    while (i >= 0) {
-        printf("%lld", digit[i]);
-        if (i % 3 == 0 && i != 0) {
-            printf(".");
-        }
-        i--;
-    }
-    temp = (unsigned long long int) nominal;
-    printf(",%02.0f", ((nominal - (double) temp)*100));
-}
-
+#include "Money.h"
 
 /**
  * @brief 

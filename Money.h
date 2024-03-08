@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+#include <string.h>
 #ifndef Money_H
 #define Money_H
 
@@ -154,9 +158,6 @@ void showSaldoUser(SaldoUser saldoUser);
 // ! Struct SaldoUser E N D
 
 // ! Struct User S T A R T
-
-
-
 /**
  * @brief Melakukan transaksi masuk untuk menambah saldo user
  * 
@@ -187,4 +188,34 @@ void showRiwayatKeluar(User user);
 
 // ! Struct User E N D
 
+/*Dari KonversiMataUang.h*/
+
+/* Deklarasi Variabel Global Berupa Informasi Mengenai Mata Uang */
+extern char* NAMA_NEGARA[];
+extern char* MATA_UANG[];
+extern double KURS_MATA_UANG[];
+
+/* Deklarasi Fungsi dan Prosedur yang Digunakan dalam Proses Konversi Kurs Mata Uang */
+int searchIndex(char *mata_uang);
+double konversiKeRupiah(char *mata_uang, double nominal_mata_uang);
+double konversiKeAsing(char *mata_uang, double nominal_rupiah);
+void formatMataUang(double nominal);
+void cetakHasilKonversi(char *mata_uang, double nominal, bool keRupiah);
+void tampilMenuKonversi();
+
+/*End dari KonversiMataUang.h*/
+
+/*Dari RekapHarian.h*/
+bool isSameDay(Tanggal tanggal1, Tanggal tanggal2);
+void rekapHarianMasuk(User user, Tanggal tanggalRekap);
+void rekapHarianKeluar(User user, Tanggal tanggalRekap);
+void rekapHarianTotal(User user, Tanggal tanggalRekap);
+void tampilMenuRekapHarian(User user);
+/*End dari RekapHarian.h*/
+
+
+/* Prototype prosedur toUpperCase */
+void toUpperCase(char *kata);
+
+void showInfo(User user);
 #endif
