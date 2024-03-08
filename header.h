@@ -100,4 +100,15 @@ Keluar inputKeluar();
 
 void showKeluar(Keluar transaksi_keluar);
 
+void catatKeuangan(User *user);
+void catatTransaksiMasuk(User *user);
+void displayTrMasuk(Masuk transaksi_masuk);
+void saveToFileMasuk(User *user);
+void readFromFileMasuk(User *user);
+
+void catatTransaksiKeluar(User *user);
+void displayTrKeluar(Keluar transaksi_keluar);
+void saveToFileKeluar(User *user);
+void readFromFileMasuk(User *user);
+
 #endif
