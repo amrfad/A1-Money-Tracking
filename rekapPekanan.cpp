@@ -52,7 +52,7 @@ void formatMataUang(double nominal) {
 bool isSameWeek(Tanggal tanggal1, Tanggal tanggal2) {
     bool equal;
     equal = (tanggal1.pekan == tanggal2.pekan);
-    equal = (tanggal1.bulan == tanggal2.bulan);
+    equal = equal && (tanggal1.bulan == tanggal2.bulan);
     equal = equal && (tanggal1.tahun == tanggal2.tahun);
     return equal;
 }
@@ -68,7 +68,7 @@ void rekapPekananMasuk(User user, Tanggal tanggalRekap) {
     printf("\033[1;34m%-10s\t%-10s\t%s\033[0m\n", "Tanggal", "Nominal", "Sumber Dana");
     for (int i = 0; i < user.indeksMasuk; i++) {
         if (isSameWeek(tanggalRekap, user.transaksi_masuk[i].waktu)) {
-            printf("%02d/%02d/%d\t", tanggalRekap.tanggal, tanggalRekap.bulan, tanggalRekap.tahun);
+            printf("%02d/%02d/%d\t", user.transaksi_masuk[i].waktu.tanggal, user.transaksi_masuk[i].waktu.bulan, user.transaksi_masuk[i].waktu.tahun);
             formatMataUang(user.transaksi_masuk[i].nominal);
             printf("\t%s\n", user.transaksi_masuk[i].sumber_dana == 1 ? "Dompet Digital" : "Bank");
             totalPemasukan += user.transaksi_masuk[i].nominal;
@@ -125,8 +125,8 @@ void rekapPekananMasuk(User user, Tanggal tanggalRekap) {
  * @param user 
  * @param tanggalRekap 
  */
-void rekapBulananKeluar(User user, Tanggal tanggalRekap) {
-    char* kategori[] = {"Makanan", "Transportasi", "Hiburan", "Tagihan", "Lain-lain"};
+void rekapPekananKeluar(User user, Tanggal tanggalRekap) {
+    const char* kategori[] = {"Makanan", "Transportasi", "Hiburan", "Tagihan", "Lain-lain"};
     float totalPengeluaran = 0;
     printf("\033[1;34m%-10s\t%-10s\t%s\t%s\033[0m\n", "Tanggal", "Nominal", "Sumber Dana", "Kategori");
     for (int i = 0; i < user.indeksKeluar; i++) {

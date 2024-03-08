@@ -29,34 +29,6 @@ bool isSameMonth(Tanggal tanggal1, Tanggal tanggal2) {
 }
 
 /**
- * @brief Mencetak Mata Uang dengan Format Penulisan Mata Uang pada Umumnya
- * 
- * @param nominal 
- */
-void formatMataUang(double nominal) {
-    unsigned long long int digit[20];
-    int i = 0;
-    unsigned long long int temp = (unsigned long long int) nominal;
-    if (temp == 0) printf("0");
-    while (temp != 0) {
-        digit[i] = temp % 10;
-        temp = temp / 10;
-        i++;
-    }
-    i--;
-    while (i >= 0) {
-        printf("%lld", digit[i]);
-        if (i % 3 == 0 && i != 0) {
-            printf(".");
-        }
-        i--;
-    }
-    temp = (unsigned long long int) nominal;
-    printf(",%02.0f", ((nominal - (double) temp)*100));
-}
-
-
-/**
  * @brief 
  * 
  * @param user 
@@ -67,7 +39,7 @@ void rekapBulananMasuk(User user, Tanggal tanggalRekap) {
     printf("\033[1;34m%-10s\t%-10s\t%s\033[0m\n", "Tanggal", "Nominal", "Sumber Dana");
     for (int i = 0; i < user.indeksMasuk; i++) {
         if (isSameMonth(tanggalRekap, user.transaksi_masuk[i].waktu)) {
-            printf("%02d/%02d/%d\t", tanggalRekap.tanggal, tanggalRekap.bulan, tanggalRekap.tahun);
+            printf("%02d/%02d/%d\t", user.transaksi_masuk[i].waktu.tanggal, user.transaksi_masuk[i].waktu.bulan, user.transaksi_masuk[i].waktu.tahun);
             formatMataUang(user.transaksi_masuk[i].nominal);
             printf("\t%s\n", user.transaksi_masuk[i].sumber_dana == 1 ? "Dompet Digital" : "Bank");
             totalPemasukan += user.transaksi_masuk[i].nominal;
@@ -125,7 +97,7 @@ void rekapBulananMasuk(User user, Tanggal tanggalRekap) {
  * @param tanggalRekap 
  */
 void rekapBulananKeluar(User user, Tanggal tanggalRekap) {
-    char* kategori[] = {"Makanan", "Transportasi", "Hiburan", "Tagihan", "Lain-lain"};
+    const char* kategori[] = {"Makanan", "Transportasi", "Hiburan", "Tagihan", "Lain-lain"};
     float totalPengeluaran = 0;
     printf("\033[1;34m%-10s\t%-10s\t%s\t%s\033[0m\n", "Tanggal", "Nominal", "Sumber Dana", "Kategori");
     for (int i = 0; i < user.indeksKeluar; i++) {
