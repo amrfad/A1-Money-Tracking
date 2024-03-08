@@ -15,6 +15,55 @@ typedef struct Tanggal
 } Tanggal;
 
 /**
+ * @brief Menampung data transaksi masuk
+ * 
+ */
+typedef struct Masuk
+{
+    Tanggal waktu;   // belum fix
+    int sumber_dana; // 1. dompet dig/ 2. bank
+    float nominal;
+} Masuk;
+
+/**
+ * @brief Menampung data transaksi keluar
+ * 
+ */
+typedef struct Keluar
+{
+    Tanggal waktu;
+    int sumber_dana;
+    float nominal;
+    int kategori;
+} Keluar;
+
+/**
+ * @brief Menampung data saldo user
+ * 
+ */
+ 
+typedef struct SaldoUser
+{
+    float dompet_digital = 0;
+    float bank = 0;
+    float total = this->dompet_digital + this->bank;
+} SaldoUser;
+
+/**
+ * @brief Menampung objek user
+ * 
+ */
+typedef struct User
+{
+    const char *nama = "JAJANG RASING UZUMAKI";
+    SaldoUser saldo;
+    Masuk transaksi_masuk[365];
+    int indeksMasuk = 0;
+    Keluar transaksi_keluar[500];
+    int indeksKeluar = 0;
+} User;
+
+/**
  * @brief Membuat instance dari objek Tanggal
  *
  * @param Tanggal - Alamat dari instance yang akan diinisialisasi
@@ -53,96 +102,22 @@ void showTanggal(Tanggal tanggal);
 
 // ! Struct Masuk S T A R T
 
-/**
- * @brief Menampung data transaksi masuk
- * 
- */
-typedef struct Masuk
-{
-    Tanggal waktu;   // belum fix
-    int sumber_dana; // 1. dompet dig/ 2. bank
-    float nominal;
-} Masuk;
 
-/**
- * @brief Membuat instance dari objek Tanggal
- *
- * @param transaksi_masuk - Alamat dari instance yang akan diinisialisasi
- * @param waktu_transaksi - Waktu dilakukannya transaksi
- * @param sumber_dana - [1. Dompet Digital], [2. Rekening Bank]
- * @param nominal - Nominal uang yang dideposit
- */
-void newMasuk(Masuk *transaksi_masuk, Tanggal waktu_transaksi, int sumber_dana, float nominal);
+/**Transaksi Masuk*/
+void catatKeuangan(User *user);
+void catatTransaksiMasuk(User *user);
+void displayTrMasuk(Masuk transaksi_masuk);
+void saveToFile(User *user);
 
-/**
- * @brief Membuat instance Masuk baru berdasarkan input user
- * 
- * @return Masuk - instance Masuk yang telah diinput
- */
-Masuk inputMasuk();
+/**Transaksi Keluar*/
 
-/**
- * @brief Menampilkan transaksi yang masuk
- * 
- * @param transaksi_masuk - objek transaksi yang akan ditampilkan
- */
-void showMasuk(Masuk transaksi_masuk);
+void catatTransaksiKeluar(User *user);
+void displayTrKeluar(Keluar transaksi_keluar);
 
-// ! Struct Masuk E N D
+/**Data_Load**/
+void readFromFile(User *user);
+void displayDetailTransaksi(User *user);
 
-// ! Struct Keluar S T A R T
-
-/**
- * @brief Menampung data transaksi keluar
- * 
- */
-typedef struct Keluar
-{
-    Tanggal waktu;
-    int sumber_dana;
-    float nominal;
-    int kategori;
-} Keluar;
-
-/**
- * @brief Membuat instance dari objek Keluar
- * 
- * @param transaksi_keluar - Alamat dari instance yang akan diinisialisasi
- * @param waktu - Waktu dilakukannya transaksi
- * @param sumber_dana - [1. Dompet Digital], [2. Rekening Bank]
- * @param nominal - Nominal uang yang dideposit
- * @param kategori - [1. Makanan], [2. Transportasi], [3. Hiburan], [4. Tagihan], [5. Lain-lain]
- */
-void newKeluar(Keluar *transaksi_keluar, Tanggal waktu, int sumber_dana, float nominal, int kategori);
-
-/**
- * @brief Membuat instance Keluar baru berdasarkan input user
- * 
- * @return Keluar - instance Keluar yang telah diinput
- */
-Keluar inputKeluar();
-
-/**
- * @brief Menampilkan objek Keluar
- * 
- * @param transaksi_keluar - Objek Keluar yang akan ditampilkan
- */
-void showKeluar(Keluar transaksi_keluar);
-
-// ! Struct Keluar E N D
-
-// ! Struct SaldoUser S T A R T
-
-/**
- * @brief Menampung Saldo uang yang dimiliki
- * 
- */
-typedef struct SaldoUser
-{
-    float dompet_digital = 0;
-    float bank = 0;
-    float total = this->dompet_digital + this->bank;
-} SaldoUser;
 
 /**
  * @brief Mengecek saldo yang dimiliki user dari sumber dana tertentu
@@ -180,26 +155,7 @@ void showSaldoUser(SaldoUser saldoUser);
 
 // ! Struct User S T A R T
 
-/**
- * @brief Menampung objek user
- * 
- */
-typedef struct User
-{
-    const char *nama = "JAJANG RASING UZUMAKI";
-    SaldoUser saldo;
-    Masuk transaksi_masuk[365];
-    int indeksMasuk = 0;
-    Keluar transaksi_keluar[500];
-    int indeksKeluar = 0;
-} User;
 
-/**
- * @brief Menampilkan info user
- * 
- * @param user 
- */
-void showInfo(User user);
 
 /**
  * @brief Melakukan transaksi masuk untuk menambah saldo user
