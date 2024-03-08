@@ -1,28 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-#include "Money.h"
+#include "money.h"
 
 #define MAX_MASUK 365
 #define MAX_KELUAR 730
 
-void readFromFileMasuk(User *user)
+void readFromFile(User *user)
 {
-	FILE *file = fopen("Pemasukan.DAT", "rb");
-	if (file == NULL)
-    {
-        printf("Gagal membuka file\n");
-        return;
-    }
-    
-    fread(user, sizeof(User), 1, file);
-    
-    fclose(file);
-}
-
-void readFromFileKeluar(User *user)
-{
-	FILE *file = fopen("Pengeluaran.DAT", "rb");
+	FILE *file = fopen("User.DAT", "rb");
 	if (file == NULL)
     {
         printf("Gagal membuka file\n");
@@ -36,20 +22,20 @@ void readFromFileKeluar(User *user)
 
 void displayDetailTransaksi(User *user)
 {
-    printf("\n========= DETAIL TRANSAKSI =========\n");
+    printf("\n========= \033[32mDETAIL TRANSAKSI\033[0m =========\n\n");
     printf("Jumlah Transaksi Masuk: %d\n", user->indeksMasuk);
     printf("Jumlah Transaksi Keluar: %d\n\n", user->indeksKeluar);
 
-    printf("===== Transaksi Masuk =====\n");
+    printf("===== \033[32mTransaksi Masuk\033[0m =====\n\n");
     for (int i = 0; i < user->indeksMasuk; i++)
     {
         printf("Transaksi ke-%d\n", i + 1);
 		showTanggal(user->transaksi_masuk[i].waktu);
-        printf("Sumber Dana	: %s\n", user->transaksi_masuk[i].sumber_dana == 1 ? "Dompet Digital" : "Bank");
-        printf("Nominal		: %.2f\n\n", user->transaksi_masuk[i].nominal);
+        printf("Sumber Dana             :       %s\n", user->transaksi_masuk[i].sumber_dana == 1 ? "Dompet Digital" : "Bank");
+        printf("Nominal		        :       %.2f\n\n", user->transaksi_masuk[i].nominal);
     }
 
-    printf("===== Transaksi Keluar =====\n");
+    printf("===== \033[32mTransaksi Keluar\033[0m =====\n");
     for (int i = 0; i < user->indeksKeluar; i++)
     {
         printf("Transaksi ke-%d\n", i + 1);

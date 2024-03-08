@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-#include "Money.h"
+#include "money.h"
 
 
 #define MAX_MASUK 365
@@ -10,7 +10,7 @@
 
 void catatKeuangan(User *user){
 	printf("-------------------------------\n");
-	printf("Ayo Catat Keuangan Anda di Sini\n");
+	printf("\033[32mAyo Catat Keuangan Anda \033[34mdisini\033[0m\n");
 	printf("-------------------------------\n");
 	
 	printf("(1) Pemasukan\n");
@@ -23,15 +23,15 @@ void catatKeuangan(User *user){
 	switch (pilihan){
 		case 1: //Pemasukan
 		catatTransaksiMasuk(user);
-		system("cls");
-		saveToFileMasuk(user);
-		break;
+		saveToFile(user);
+		// system("cls");
+		return;
 		
 		case 2: //Pengeluaran
 		catatTransaksiKeluar(user);
-		system("cls");
-		saveToFileKeluar(user);
-		break;
+		saveToFile(user);
+		// system("cls");
+		return;
 	}
 	
 }
@@ -43,15 +43,16 @@ void catatTransaksiMasuk(User *user){
 		Masuk transaksi;
 		
 		waktu_transaksi = inputTanggal();
+		transaksi.waktu = waktu_transaksi;
 		while (true)
 		{
-			printf("Sumber Dana 	:	\n");
+			printf("\n\033[34mSumber Dana 	:	\n");
 			printf("(1) Dompet digital\n");
-			printf("(2) Bank\n");
-			printf("Input			:	");
-			scanf("%d", &transaksi.sumber_dana);
+			printf("(2) Bank\n\n");
+			printf("\033[32mInput	: ");
+			scanf(" %d", &transaksi.sumber_dana);
 			
-			if ((transaksi.sumber_dana != 1) || (transaksi.sumber_dana) != 2)
+			if ((transaksi.sumber_dana != 1) && (transaksi.sumber_dana) != 2)
 			{
 				printf("Masukkan angka yang sesuai!\n");
 				continue;
@@ -59,14 +60,12 @@ void catatTransaksiMasuk(User *user){
 			
 			break;
 		}
-		fflush(stdin);
-		
-		printf("Masukkan Nominal)	:	Rp. ");
+		fflush(stdin);		
+		printf("\n\033[32mMasukkan Nominal	:	Rp. ");
 		scanf("%f", &transaksi.nominal);
 		
 		
 		user->transaksi_masuk[user->indeksMasuk] = transaksi;
-		user->indeksMasuk++;
 		
 		if(transaksi.sumber_dana == 1 )	//Dompet digital
 		{
@@ -78,15 +77,18 @@ void catatTransaksiMasuk(User *user){
 		}
 		
 		user->saldo.total += transaksi.nominal;	
-		
+
+		system("cls");
 		displayTrMasuk(user->transaksi_masuk[user->indeksMasuk]);
+
+		user->indeksMasuk++;
 	}
 }
 
 void displayTrMasuk(Masuk transaksi_masuk){
-	printf("------------------\n");
+	printf("\033[0m------------------\n");
 	printf("Transaksi Berhasil\n");
-	printf("------------------\n");
+	printf("------------------\n\n");
 
 	showTanggal(transaksi_masuk.waktu);
 	
@@ -99,23 +101,10 @@ void displayTrMasuk(Masuk transaksi_masuk){
 		printf("Sumber dana		:	Bank\n");
 	}
 	
-	printf("Nominal			:	%f\n", transaksi_masuk.nominal);
+	printf("Nominal			:	%.2f\n", transaksi_masuk.nominal);
 	
-	printf("=======Menabung agar Untung======");
-}
-
-void saveToFileMasuk(User *user)
-{
-    FILE *file = fopen("Pemasukan.DAT", "wb");
-    if (file == NULL)
-    {
-        printf("Gagal membuka file\n");
-        return;
-    }
-
-    fwrite(user, sizeof(User), 1, file);
-
-    fclose(file);
+	printf("\n=======Menabung agar Untung======\n");
+	getchar();
 }
 
 void catatTransaksiKeluar(User *user){
@@ -125,15 +114,16 @@ void catatTransaksiKeluar(User *user){
 		Keluar transaksi;
 		
 		waktu_transaksi = inputTanggal();
+		transaksi.waktu = waktu_transaksi;
 		while (true)
 		{
-			printf("Sumber Dana 	:	\n");
+			printf("\n\033[34mSumber Dana 	:	\n");
 			printf("(1) Dompet digital\n");
 			printf("(2) Bank\n");
-			printf("Input			:	");
-			scanf("%d", &transaksi.sumber_dana);
+			printf("\n\033[32mInput		:	");
+			scanf(" %d", &transaksi.sumber_dana);
 			
-			if ((transaksi.sumber_dana != 1) || (transaksi.sumber_dana) != 2)
+			if ((transaksi.sumber_dana != 1) && (transaksi.sumber_dana) != 2)
 			{
 				printf("Masukkan angka yang sesuai!\n");
 				continue;
@@ -143,18 +133,18 @@ void catatTransaksiKeluar(User *user){
 		}
 		fflush(stdin);
 		
-		printf("Masukkan Nominal)	:	Rp. ");
+		printf("\n\033[32mMasukkan Nominal	:	Rp. ");
 		scanf("%f", &transaksi.nominal);
 		
 		while (true)
 		{
-			printf("Masukkan Kategori)	:\n");
+			printf("\n\033[34mMasukkan Kategori	:\n");
 			printf("(1) Makanan\n");
 			printf("(2) Transportasi\n");
 			printf("(3) Hiburan\n");
 			printf("(4) Tagihan\n");
 			printf("(5) Lain-lain\n");
-			printf("Input	:	");
+			printf("\n\033[32mInput	:	");
 			scanf("%d", &transaksi.kategori);
 			
 			if ((transaksi.kategori < 1) || (transaksi.kategori > 5))
@@ -166,9 +156,7 @@ void catatTransaksiKeluar(User *user){
 		}
 		fflush(stdin);
 		
-		
 		user->transaksi_keluar[user->indeksKeluar] = transaksi;
-		user->indeksKeluar++;
 		
 		if(transaksi.sumber_dana == 1 )	//Dompet digital
 		{
@@ -179,13 +167,16 @@ void catatTransaksiKeluar(User *user){
 			user->saldo.bank -= transaksi.nominal;
 		}
 		user->saldo.total -= transaksi.nominal;	
-		
+
+		system("cls");
 		displayTrKeluar(user->transaksi_keluar[user->indeksKeluar]);
+
+		user->indeksKeluar++;
 	}
 }
 
 void displayTrKeluar(Keluar transaksi_keluar){
-	printf("------------------\n");
+	printf("\033[0m------------------\n");
 	printf("Transaksi Berhasil\n");
 	printf("------------------\n");
 
@@ -200,32 +191,32 @@ void displayTrKeluar(Keluar transaksi_keluar){
 		printf("Sumber dana		:	Bank\n");
 	}
 	
-	printf("Nominal			:	%f\n", transaksi_keluar.nominal);
+	printf("Nominal			:	%.2f\n", transaksi_keluar.nominal);
 	
 	switch (transaksi_keluar.kategori){
 		case 1 :
-			printf("Kategori	:	Makanan\n");
+			printf("Kategori		:	Makanan\n");
 			break;
 		case 2 :
-			printf("Kategori	:	Hiburan\n");
+			printf("Kategori		:	Transportasi\n");
 			break;
 		case 3 :
-			printf("Kategori	:	Hiburan\n");
+			printf("Kategori		:	Hiburan\n");
 			break;
 		case 4 :
-			printf("Kategori	:	Tagihan\n");
+			printf("Kategori		:	Tagihan\n");
 			break;
 		case 5 :
-			printf("Kategori	:	Lain-lain");
+			printf("Kategori		:	Lain-lain");
 			break;
 	}
 	
-	printf("=======Hemat Pangkal Kaya======");
+	printf("=======Hemat Pangkal Kaya======\n");
 }
 
-void saveToFileKeluar(User *user)
+void saveToFile(User *user)
 {
-    FILE *file = fopen("Pengeluaran.DAT", "wb");
+    FILE *file = fopen("User.DAT", "wb");
     if (file == NULL)
     {
         printf("Gagal membuka file\n");
