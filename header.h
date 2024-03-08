@@ -107,4 +107,5 @@ void formatMataUang(double nominal);
 bool isSameWeek(Tanggal tanggal1, Tanggal tanggal2);
 void rekapPekananMasuk(User user, Tanggal tanggalRekap);
 void rekapPekananKeluar(User user, Tanggal tanggalRekap);
+void banner();
 #endif

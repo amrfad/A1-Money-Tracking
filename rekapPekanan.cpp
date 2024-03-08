@@ -57,6 +57,20 @@ bool isSameWeek(Tanggal tanggal1, Tanggal tanggal2) {
     return equal;
 }
 
+void banner() {
+    printf("/$$      /$$                                               /$$$$$$$$                           /$$       /$$                    \n");
+    printf("| $$$    /$$$                                              |__  $$__/                          | $$      |__/                    \n");
+    printf("| $$$$  /$$$$  /$$$$$$  /$$$$$$$   /$$$$$$  /$$   /$$         | $$  /$$$$$$  /$$$$$$   /$$$$$$$| $$   /$$ /$$ /$$$$$$$   /$$$$$$ \n");
+    printf("| $$ $$/$$ $$ /$$__  $$| $$__  $$ /$$__  $$| $$  | $$         | $$ /$$__  $$|____  $$ /$$_____/| $$  /$$/| $$| $$__  $$ /$$__  $$\n");
+    printf("| $$  $$$| $$| $$  \\ $$| $$  \\ $$| $$$$$$$$| $$  | $$         | $$| $$  \\__/ /$$$$$$$| $$      | $$$$$$/ | $$| $$  \\ $$| $$  \\ $$\n");
+    printf("| $$\\  $ | $$| $$  | $$| $$  | $$| $$_____/| $$  | $$         | $$| $$      /$$__  $$| $$      | $$_  $$ | $$| $$  | $$| $$  | $$\n");
+    printf("| $$ \\/  | $$|  $$$$$$/| $$  | $$|  $$$$$$$|  $$$$$$$         | $$| $$     |  $$$$$$$|  $$$$$$$| $$ \\  $$| $$| $$  | $$|  $$$$$$$\n");
+    printf("|__/     |__/ \\______/ |__/  |__/ \\_______/ \\____  $$         |__/|__/      \\_______/ \\_______/|__/  \\__/|__/|__/  |__/ \\____  $$\n");
+    printf("                                            /$$  | $$                                                                   /$$  \\ $$\n");
+    printf("                                           |  $$$$$$/                                                                  |  $$$$$$/\n");
+    printf("                                            \\______/                                                                    \\______/ \n");
+}
+
 /**
  * @brief 
  * 
@@ -64,6 +78,7 @@ bool isSameWeek(Tanggal tanggal1, Tanggal tanggal2) {
  * @param tanggalRekap 
  */
 void rekapPekananMasuk(User user, Tanggal tanggalRekap) {
+    printf("Masukkan bulan yang ingin ditampilkan data rekapnya ");
     float totalPemasukan = 0;
     printf("\033[1;34m%-10s\t%-10s\t%s\033[0m\n", "Tanggal", "Nominal", "Sumber Dana");
     for (int i = 0; i < user.indeksMasuk; i++) {
