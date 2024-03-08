@@ -1,7 +1,7 @@
 # Money Tracking
 Tugas ini dibuat untuk memenuhi tugas praktikum mata kuliah Proyek 1.  
 
-### Anggota Tim: 
+### Anggota Tim 
 - Reqi Jumantara Hapid              - 231524023 (Ketua)
 - Amr Fadhilah Abiyyu Alif Basysyar - 231524002
 - Fitra Rifki Firdaus               - 231524008
