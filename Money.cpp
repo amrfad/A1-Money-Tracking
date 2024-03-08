@@ -311,6 +311,12 @@ void showSaldoUser(SaldoUser saldoUser) {
 
 // ! Struct User S T A R T
 
+void showInfo(User user) {
+    printf("%s\n", user.nama);
+    printf("***************\n");
+    showSaldoUser(user.saldo);
+}
+
 void transaksiMasuk(User *user)
 {
     Masuk transaksiMasuk = inputMasuk();

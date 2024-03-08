@@ -195,6 +195,13 @@ typedef struct User
 } User;
 
 /**
+ * @brief Menampilkan info user
+ * 
+ * @param user 
+ */
+void showInfo(User user);
+
+/**
  * @brief Melakukan transaksi masuk untuk menambah saldo user
  * 
  * @param user - Objek user
