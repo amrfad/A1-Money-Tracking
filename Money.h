@@ -90,4 +90,45 @@ void showMasuk(Masuk transaksi_masuk);
 
 // ! Struct Masuk E N D
 
+// ! Struct Keluar S T A R T
+
+/**
+ * @brief Menampung data transaksi keluar
+ * 
+ */
+typedef struct Keluar
+{
+    Tanggal waktu;
+    int sumber_dana;
+    float nominal;
+    int kategori;
+} Keluar;
+
+/**
+ * @brief Membuat instance dari objek Keluar
+ * 
+ * @param transaksi_keluar - Alamat dari instance yang akan diinisialisasi
+ * @param waktu - Waktu dilakukannya transaksi
+ * @param sumber_dana - [1. Dompet Digital], [2. Rekening Bank]
+ * @param nominal - Nominal uang yang dideposit
+ * @param kategori - [1. Makanan], [2. Transportasi], [3. Hiburan], [4. Tagihan], [5. Lain-lain]
+ */
+void newKeluar(Keluar *transaksi_keluar, Tanggal waktu, int sumber_dana, float nominal, int kategori);
+
+/**
+ * @brief Membuat instance Keluar baru berdasarkan input user
+ * 
+ * @return Keluar - instance Keluar yang telah diinput
+ */
+Keluar inputKeluar();
+
+/**
+ * @brief Menampilkan objek Keluar
+ * 
+ * @param transaksi_keluar - Objek Keluar yang akan ditampilkan
+ */
+void showKeluar(Keluar transaksi_keluar);
+
+// ! Struct Keluar E N D
+
 #endif

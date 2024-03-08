@@ -148,3 +148,120 @@ void showMasuk(Masuk transaksi_masuk) {
 }
 
 // ! Struct Masuk E N D
+
+// ! Struct Keluar S T A R T
+
+void newKeluar(Keluar *transaksi_keluar, Tanggal waktu, int sumber_dana, float nominal, int kategori) {
+    transaksi_keluar->waktu = waktu;
+    transaksi_keluar->sumber_dana = sumber_dana;
+    transaksi_keluar->nominal = nominal;
+    transaksi_keluar->kategori = kategori;
+}
+
+Keluar inputKeluar() {
+    Keluar transaksi_keluar;
+
+    Tanggal waktu;
+    int sumber_dana = 0;
+    float nominal = -999;
+    int kategori = 0;
+
+    waktu = inputTanggal();
+
+    while(true) {
+        printf("Masukkan Sumber Dana: \n");
+        printf("1) Dompet Digital\n");
+        printf("2) Rekening Bank\n");
+        printf("Input: ");
+        scanf("%d", &sumber_dana);
+
+        if (sumber_dana != 1 && sumber_dana != 2)
+        {
+            // todo HEADER
+            system("cls");
+            printf("ERROR INPUT: Input yang dimasukkan tidak valid.\n");
+            continue;
+        }
+
+        break;
+    }
+
+    fflush(stdin);
+
+    while (true)
+    {
+        printf("Kategori Pengeluaran:\n");
+        printf("1) Makanan\n");
+        printf("2) Transportasi\n");
+        printf("3) Hiburan\n");
+        printf("4) Tagihan\n");
+        printf("5) Lain-lain\n");
+        printf("Input: ");
+        scanf("%d", &kategori);
+
+        if (kategori != 1 && kategori != 2 && kategori != 3 && kategori != 4 && kategori != 5) {
+            // todo HEADER
+            system("cls");
+            printf("ERROR INPUT: Input yang dimasukkan tidak valid.\n");
+        }
+        break;
+    }
+
+    fflush(stdin);
+    
+    while (nominal < 0)
+    {
+        printf("Masukkan Nominal Deposit: ");
+        scanf("%f", &nominal);
+
+        if (nominal < 0) {
+            // todo HEADER
+            system("cls");
+            printf("ERROR INPUT: Input yang dimasukkan tidak valid.\n");
+        }
+    }
+
+    newKeluar(&transaksi_keluar, waktu, sumber_dana, nominal, kategori);
+    return transaksi_keluar;
+}
+
+void showKeluar(Keluar transaksi_keluar) {
+    printf("TRANSAKSI KELUAR\n");
+    printf("***************\n");
+    showTanggal(transaksi_keluar.waktu);
+    switch (transaksi_keluar.sumber_dana)
+    {
+    case 1:
+        printf("Dompet Digital: \n");
+        break;
+    case 2:
+        printf("Rekening Bank: \n");
+        break;
+    default:
+        break;
+    }
+    switch (transaksi_keluar.kategori)
+    {
+    case 1:
+        printf("Kategori: Makanan\n");
+        break;
+    case 2:
+        printf("Kategori: Transportasi\n");
+        break;
+    case 3:
+        printf("Kategori: Hiburan\n");
+        break;
+    case 4:
+        printf("Kategori: Tagihan\n");
+        break;
+    case 5:
+        printf("Kategori: Lain-lain\n");
+        break;
+    default:
+        break;
+    }
+    printf("-Rp. %.2f\n", transaksi_keluar.nominal);
+    printf("***************\n");
+}
+
+// ! Struct Keluar E N D
