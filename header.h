@@ -100,12 +100,12 @@ void readFromFileMasuk(User *user);
 void displayDetailTransaksi(User *user);
 
 bool isSameMonth(Tanggal tanggal1, Tanggal tanggal2);
-void rekapBulananMasuk(User user, Tanggal tanggalRekap);
-void rekapBulananKeluar(User user, Tanggal tanggalRekap);
+void rekapBulananMasuk(User user);
+void rekapBulananKeluar(User user);
 void formatMataUang(double nominal);
 
 bool isSameWeek(Tanggal tanggal1, Tanggal tanggal2);
-void rekapPekananMasuk(User user, Tanggal tanggalRekap);
-void rekapPekananKeluar(User user, Tanggal tanggalRekap);
+void rekapPekananMasuk(User user);
+void rekapPekananKeluar(User user);
 void banner();
 #endif

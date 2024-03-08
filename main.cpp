@@ -27,7 +27,7 @@ int main() {
     aUser1.transaksi_keluar[1] = {tanggal2, 0, 150000, 3};
     aUser1.indeksKeluar += 2;
     
-    // rekapBulananMasuk(aUser1, rekap);
+    rekapBulananMasuk(aUser1);
     // rekapPekananMasuk(aUser1, rekap);
-    banner();
+    // banner();
 }
