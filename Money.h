@@ -59,7 +59,7 @@ typedef struct SaldoUser
  */
 typedef struct User
 {
-    char *nama = "Asep";
+    char nama[20] = "Asep";
     SaldoUser saldo;
     Masuk transaksi_masuk[365];
     int indeksMasuk = 0;
