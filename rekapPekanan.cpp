@@ -139,6 +139,8 @@ void rekapPekananMasuk(User user) {
     } else {
         printf("\033[1;32mData Kosong\033[0m\n");
     }
+    printf("Ketik apapun untuk kembali ke menu awal.");
+    getchar();
 }
 
 
@@ -242,4 +244,36 @@ void rekapPekananKeluar(User user) {
     } else {
         printf("\033[1;32mData Kosong\033[0m\n");
     }
+    printf("Ketik apapun untuk kembali ke menu awal.");
+    getchar();
+}
+
+void tampilMenuRekapPekanan(User user) {
+    // void(*tab[2])(User user, Tanggal tanggalRekap) = {&rekapPekananMasuk, &rekapPekananKeluar};
+    printf("\033[1;34mPilihan Mode Rekap Pekanan:\033[0m\n");
+    printf("\033[1;32m[1]\033[0m Rekap Pekanan Transaksi Masuk\n");
+    printf("\033[1;32m[2]\033[0m Rekap Pekanan Transaksi Keluar\n");
+    printf("\033[1;34mPilih Mode: \033[0m");
+    int choice;
+    scanf(" %d", &choice);
+
+    switch (choice)
+    {
+        case 1:
+            rekapPekananMasuk(user);
+            break;
+        case 2:
+            rekapPekananKeluar(user);
+            break;
+    }
+    
+    // Tanggal tanggalRekap;
+    // printf("\033[1;34mMasukkan Tanggal yang Ingin Direkap \033[30m[Contoh: 23/04/2024]\033[1;34m: \033[0m");
+    // scanf(" %02d/%02d/%d", &(tanggalRekap.tanggal), &(tanggalRekap.bulan), &(tanggalRekap.tahun));
+    // system("cls");
+    // tab[choice - 1](user, tanggalRekap);
+    // printf("\033[36m[Klik Enter untuk Kembali ke Menu]\033[0m");
+    // getchar();
+    // getchar();
+    // system("cls");
 }

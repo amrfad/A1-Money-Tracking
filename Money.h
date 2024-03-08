@@ -213,7 +213,17 @@ void rekapHarianTotal(User user, Tanggal tanggalRekap);
 void tampilMenuRekapHarian(User user);
 /*End dari RekapHarian.h*/
 
+/*Rekap Pekanan*/
+void tampilMenuRekapPekanan(User user);
+void rekapPekananMasuk(User user);
+void rekapPekananKeluar(User user);
+/*End Rekap Pekanan*/
 
+
+/*Rekap Bulanan*/
+void rekapBulananMasuk(User user);
+void rekapBulananKeluar(User user);
+/*End Rekap Bulanan*/
 /* Prototype prosedur toUpperCase */
 void toUpperCase(char *kata);
 

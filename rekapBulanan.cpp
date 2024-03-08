@@ -118,6 +118,8 @@ void rekapBulananMasuk(User user) {
     } else {
         printf("\033[1;32mData Kosong\033[0m\n");
     }
+    printf("Ketik apapun untuk kembali ke menu awal.");
+    getchar();
 }
 
 
@@ -212,4 +214,6 @@ void rekapBulananKeluar(User user) {
     } else {
         printf("\033[1;32mData Kosong\033[0m\n");
     }
+    printf("Ketik apapun untuk kembali ke menu awal.");
+    getchar();
 }
