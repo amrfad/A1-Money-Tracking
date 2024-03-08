@@ -49,6 +49,45 @@ Tanggal inputTanggal();
  */
 void showTanggal(Tanggal tanggal);
 
-// ! Struct Tanggal S T A R T
+// ! Struct Tanggal  E N D
+
+// ! Struct Masuk S T A R T
+
+/**
+ * @brief Menampung data transaksi masuk
+ * 
+ */
+typedef struct Masuk
+{
+    Tanggal waktu;   // belum fix
+    int sumber_dana; // 1. dompet dig/ 2. bank
+    float nominal;
+} Masuk;
+
+/**
+ * @brief Membuat instance dari objek Tanggal
+ *
+ * @param transaksi_masuk - Alamat dari instance yang akan diinisialisasi
+ * @param waktu_transaksi - Waktu dilakukannya transaksi
+ * @param sumber_dana - [1. Dompet Digital], [2. Rekening Bank]
+ * @param nominal - Nominal uang yang dideposit
+ */
+void newMasuk(Masuk *transaksi_masuk, Tanggal waktu_transaksi, int sumber_dana, float nominal);
+
+/**
+ * @brief Membuat instance Masuk baru berdasarkan input user
+ * 
+ * @return Masuk - instance Masuk yang telah diinput
+ */
+Masuk inputMasuk();
+
+/**
+ * @brief Menampilkan transaksi yang masuk
+ * 
+ * @param transaksi_masuk - objek transaksi yang akan ditampilkan
+ */
+void showMasuk(Masuk transaksi_masuk);
+
+// ! Struct Masuk E N D
 
 #endif
