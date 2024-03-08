@@ -5,7 +5,7 @@
  * @version 0.5
  * @date 2024-03-08
  * 
- * @copyright Copyright (c) 2024 AMR FADHILAH ABIYYU ALIF BASYSYAR
+ * @copyright Copyright (c) 2024 KELOMPOK A1
  * 
  */
 
@@ -202,7 +202,7 @@ void tampilMenuKonversi() {
     printf("\033[1;34mMasukkan Nominal %s yang Ingin Dikonversikan ke %s: \033[0m", (pilihan==1 ? "IDR" : input), (pilihan==1 ? input : "IDR"));
     scanf(" %lf", &nominal);
     cetakHasilKonversi(input, nominal, pilihan==2);
-    printf("\n\033[30m[Klik Enter untuk Kembali ke Menu]\033[0m");
+    printf("\n\033[36m[Klik Enter untuk Kembali ke Menu]\033[0m");
     getchar();
     getchar();
     system("cls");

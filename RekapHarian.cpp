@@ -5,7 +5,7 @@
  * @version 0.2
  * @date 2024-03-07
  * 
- * @copyright Copyright (c) 2024 AMR FADHILAH ABIYYU ALIF BASYSYAR
+ * @copyright Copyright (c) 2024 KELOMPOK A1
  * 
  */
 
@@ -129,7 +129,7 @@ void tampilMenuRekapHarian(User user) {
     scanf(" %02d/%02d/%d", &(tanggalRekap.tanggal), &(tanggalRekap.bulan), &(tanggalRekap.tahun));
     system("cls");
     tab[choice - 1](user, tanggalRekap);
-    printf("\033[30m[Klik Enter untuk Kembali ke Menu]\033[0m");
+    printf("\033[36m[Klik Enter untuk Kembali ke Menu]\033[0m");
     getchar();
     getchar();
     system("cls");
