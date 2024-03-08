@@ -14,21 +14,6 @@
 #include "header.h"
 
 /**
- * @brief 
- * 
- * @param tanggal1 
- * @param tanggal2 
- * @return true 
- * @return false 
- */
-bool isSameMonth(Tanggal tanggal1, Tanggal tanggal2) {
-    bool equal;
-    equal = (tanggal1.bulan == tanggal2.bulan);
-    equal = equal && (tanggal1.tahun == tanggal2.tahun);
-    return equal;
-}
-
-/**
  * @brief Mencetak Mata Uang dengan Format Penulisan Mata Uang pada Umumnya
  * 
  * @param nominal 
@@ -59,21 +44,37 @@ void formatMataUang(double nominal) {
 /**
  * @brief 
  * 
+ * @param tanggal1 
+ * @param tanggal2 
+ * @return true 
+ * @return false 
+ */
+bool isSameWeek(Tanggal tanggal1, Tanggal tanggal2) {
+    bool equal;
+    equal = (tanggal1.pekan == tanggal2.pekan);
+    equal = (tanggal1.bulan == tanggal2.bulan);
+    equal = equal && (tanggal1.tahun == tanggal2.tahun);
+    return equal;
+}
+
+/**
+ * @brief 
+ * 
  * @param user 
  * @param tanggalRekap 
  */
-void rekapBulananMasuk(User user, Tanggal tanggalRekap) {
+void rekapPekananMasuk(User user, Tanggal tanggalRekap) {
     float totalPemasukan = 0;
     printf("\033[1;34m%-10s\t%-10s\t%s\033[0m\n", "Tanggal", "Nominal", "Sumber Dana");
     for (int i = 0; i < user.indeksMasuk; i++) {
-        if (isSameMonth(tanggalRekap, user.transaksi_masuk[i].waktu)) {
+        if (isSameWeek(tanggalRekap, user.transaksi_masuk[i].waktu)) {
             printf("%02d/%02d/%d\t", tanggalRekap.tanggal, tanggalRekap.bulan, tanggalRekap.tahun);
             formatMataUang(user.transaksi_masuk[i].nominal);
             printf("\t%s\n", user.transaksi_masuk[i].sumber_dana == 1 ? "Dompet Digital" : "Bank");
             totalPemasukan += user.transaksi_masuk[i].nominal;
         }
     }
-    printf("\033[1;34mTotal Pemasukan pada Bulan ");
+    printf("\033[1;34mTotal Pemasukan pada Pekan ke-%d, Bulan ", tanggalRekap.pekan);
     switch (tanggalRekap.bulan)
     {
         case 1:
@@ -129,14 +130,14 @@ void rekapBulananKeluar(User user, Tanggal tanggalRekap) {
     float totalPengeluaran = 0;
     printf("\033[1;34m%-10s\t%-10s\t%s\t%s\033[0m\n", "Tanggal", "Nominal", "Sumber Dana", "Kategori");
     for (int i = 0; i < user.indeksKeluar; i++) {
-        if (isSameMonth(tanggalRekap, user.transaksi_keluar[i].waktu)) {
+        if (isSameWeek(tanggalRekap, user.transaksi_keluar[i].waktu)) {
             printf("%02d/%02d/%d\t", tanggalRekap.tanggal, tanggalRekap.bulan, tanggalRekap.tahun);
             formatMataUang(user.transaksi_keluar[i].nominal);
             printf("\t%s\t%s\n", user.transaksi_keluar[i].sumber_dana == 1 ? "Dompet Digital" : "Bank", kategori[user.transaksi_keluar[i].kategori]);
             totalPengeluaran += user.transaksi_keluar[i].nominal;
         }
     }
-    printf("\033[1;34mTotal Pengeluaran pada Bulan ");
+    printf("\033[1;34mTotal Pengeluaran pada pekan ke-%d, bulan ", tanggalRekap.pekan);
     switch (tanggalRekap.bulan)
     {
         case 1:
