@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-#include "money.h"
+#include "Money.h"
 
 #define MAX_MASUK 365
 #define MAX_KELUAR 730

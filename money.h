@@ -107,17 +107,15 @@ void showTanggal(Tanggal tanggal);
 void catatKeuangan(User *user);
 void catatTransaksiMasuk(User *user);
 void displayTrMasuk(Masuk transaksi_masuk);
-void saveToFileMasuk(User *user);
+void saveToFile(User *user);
 
 /**Transaksi Keluar*/
 
 void catatTransaksiKeluar(User *user);
 void displayTrKeluar(Keluar transaksi_keluar);
-void saveToFileKeluar(User *user);
 
 /**Data_Load**/
-void readFromFileMasuk(User *user);
-void readFromFileKeluar(User *user);
+void readFromFile(User *user);
 void displayDetailTransaksi(User *user);
 
 
