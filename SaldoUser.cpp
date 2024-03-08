@@ -1,17 +1,10 @@
-#ifndef SaldoUser_H
-#define SaldoUser_H
-
 #include <stdio.h>
-#include "Masuk.h"
-#include "Keluar.h"
+#include "header.h"
 
-typedef struct SaldoUser
-{
-    float dompet_digital = 0;
-    float bank = 0;
-    float total = this->dompet_digital + this->bank;
-} SaldoUser;
-
+/**
+ * @brief Mengecek Saldo
+ * @param saldo - saldo user sampai saat ini
+*/
 float cekSaldo(SaldoUser saldo, int sumber_dana) {
     if (sumber_dana == 1) 
         return saldo.dompet_digital;
@@ -49,5 +42,3 @@ void showSaldoUser(SaldoUser saldoUser) {
     printf("***************\n");
     printf("TOTAL: %.2f\n", saldoUser.total);
 }
-
-#endif
