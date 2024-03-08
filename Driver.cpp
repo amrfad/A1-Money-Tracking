@@ -71,11 +71,13 @@ int main() {
             banner();
             // TODO : panggil menu rekap per pekan
             tampilMenuRekapPekanan(user);
+            getch();
         } else if (i == 5) {
             system("cls");
             banner();
             // TODO : panggil menu rekap per bulan
             tampilMenuRekapBulanan(user);
+            getch();
         } else if (i == 6) {
             system("cls");
             banner();
