@@ -99,7 +99,21 @@ int main() {
         } else if (i == 8) {
             system("cls");
             //banner();
+            printf("\033[1;34mMAU LIHAT APA NIH?\033[0m\n");
+            printf("\033[1;32m[1]\033[0m Riwayat Transaksi Masuk\n");
+            printf("\033[1;32m[1]\033[0m Riwayat Transaksi Keluar\n");
+            scanf("%d", &i);
             // TODO : panggil menu laporan keuangan
+            if (i == 1) {
+                showRiwayatMasuk(user);
+            } else if (i == 2)
+            {
+                showRiwayatKeluar(user);
+            } else {
+                system("cls");
+                main();
+            }
+            
         } else if (i == 0) {
             system("cls");
             //banner();
