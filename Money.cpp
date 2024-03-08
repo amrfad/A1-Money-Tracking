@@ -77,7 +77,12 @@ void showTanggal(Tanggal tanggal) {
  * @param sumber_dana - [1. Dompet Digital], [2. Rekening Bank]
  * @param nominal - Nominal uang yang dideposit
  */
-void newMasuk(Masuk *transaksi_masuk, Tanggal waktu_transaksi, int sumber_dana, float nominal);
+void newMasuk(Masuk *transaksi_masuk, Tanggal waktu_transaksi, int sumber_dana, float nominal)
+{
+    transaksi_masuk->waktu = waktu_transaksi;
+    transaksi_masuk->sumber_dana = sumber_dana;
+    transaksi_masuk->nominal = nominal;
+}
 
 /**
  * @brief Membuat instance Masuk baru berdasarkan input user
