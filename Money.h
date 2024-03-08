@@ -131,4 +131,51 @@ void showKeluar(Keluar transaksi_keluar);
 
 // ! Struct Keluar E N D
 
+// ! Struct SaldoUser S T A R T
+
+/**
+ * @brief Menampung Saldo uang yang dimiliki
+ * 
+ */
+typedef struct SaldoUser
+{
+    float dompet_digital = 0;
+    float bank = 0;
+    float total = this->dompet_digital + this->bank;
+} SaldoUser;
+
+/**
+ * @brief Mengecek saldo yang dimiliki user dari sumber dana tertentu
+ * 
+ * @param saldo - Objek saldo yang ingin dicek
+ * @param sumber_dana - [1) Dompet Digital] / [2) Rekening Bank]
+ * @return float 
+ */
+float cekSaldo(SaldoUser saldo, int sumber_dana);
+
+/**
+ * @brief Menambah saldo user berdasarkan transaksi_masuk
+ * 
+ * @param saldo - Objek saldo yang akan ditambah
+ * @param transaksi_masuk - Objek transaksi masuk
+ */
+void saldoMasuk(SaldoUser *saldo, Masuk transaksi_masuk);
+
+/**
+ * @brief Mengurangi saldo user berdasarkan transaksi_keluar
+ * 
+ * @param saldo - Objek saldo yang akan dikurang
+ * @param transaksi_keluar - Objek transaksi keluar
+ */
+void saldoKeluar(SaldoUser *saldo, Keluar transaksi_keluar);
+
+/**
+ * @brief Menampilkan informasi saldo user
+ * 
+ * @param saldoUser - saldo user yang akan ditampilkan
+ */
+void showSaldoUser(SaldoUser saldoUser);
+
+// ! Struct SaldoUser E N D
+
 #endif
