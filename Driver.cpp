@@ -2,7 +2,7 @@
  * @file Driver.cpp
  * @author Kelompok A1
  * @brief Driver untuk menjalankan program utama
- * @version 0.1
+ * @version 0.2
  * @date 2024-03-08
  * 
  * @copyright Copyright (c) 2024 Kelompok A1
@@ -30,6 +30,7 @@ int main() {
 
     int i = 5;
     while(i != 0) {
+        //banner();
         printf("\033[1;34mSELAMAT DATANG DI APLIKASI MONEY TRACKING!\033[0m\n");
         printf("Halo, \033[33m%s\033[0m. Saldo Totalmu Adalah: \033[36mRp. ", user.nama);
         formatMataUang(user.saldo.total);
@@ -47,28 +48,41 @@ int main() {
         scanf(" %d", &i);
         if(i == 1){
             system("cls");
+            //banner();
             // TODO : panggil menu catat keuangan
         } else if (i == 2) {
             system("cls");
+            //banner();
             // TODO : panggil menu cek saldo
         } else if (i == 3) {
             system("cls");
+            //banner();
             tampilMenuRekapHarian(user);
         } else if (i == 4) {
             system("cls");
+            //banner();
             // TODO : panggil menu rekap per pekan
         } else if (i == 5) {
             system("cls");
+            //banner();
             // TODO : panggil menu rekap per bulan
         } else if (i == 6) {
             system("cls");
+            //banner();
             // TODO : panggil menu load data
         } else if (i == 7) {
             system("cls");
+            //banner();
             tampilMenuKonversi();
         } else if (i == 8) {
             system("cls");
+            //banner();
             // TODO : panggil menu laporan keuangan
+        } else if (i == 0) {
+            system("cls");
+            //banner();
+            printf("\033[1;32mSelamat Tinggal...\033[0m\n");
+            break;
         } else {
             system("cls");
         }
