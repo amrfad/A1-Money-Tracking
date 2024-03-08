@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "header.h"
+#include "money.h"
 
 /**
  * @brief Mencetak Mata Uang dengan Format Penulisan Mata Uang pada Umumnya

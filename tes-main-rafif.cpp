@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "header.h"
+#include "money.h"
 
 int main() {
     User aUser1;
