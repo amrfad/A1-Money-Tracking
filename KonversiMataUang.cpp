@@ -1,8 +1,13 @@
-/*
-* Penanggung Jawab  : AMR FADHILAH ABIYYU ALIF BASYSYAR
-* NIM               : 231524002
-* Kelompok          : A1
-*/
+/**
+ * @file KonversiMataUang.cpp
+ * @author AMR FADHILAH ABIYYU ALIF BASYSYAR [ 231524002 ]
+ * @brief Berisi impelementasi fungsi dan prosedur serta variabel global yang digunakan pada fitur Konversi Mata Uang
+ * @version 0.5
+ * @date 2024-03-08
+ * 
+ * @copyright Copyright (c) 2024 AMR FADHILAH ABIYYU ALIF BASYSYAR
+ * 
+ */
 
 #include "KonversiMataUang.h"
 
@@ -91,7 +96,7 @@ int searchIndex(char *mata_uang) {
         }
         i++;
     }
-    printf("Mata uang tidak ditemukan.");
+    printf("\033[1;31mMATA UANG TIDAK DITEMUKAN.\033[0m");
 }
 
 
@@ -194,7 +199,11 @@ void tampilMenuKonversi() {
     printf("\033[1;34mMasukkan Pilihanmu: \033[0m");
     scanf(" %d", &pilihan);
     toUpperCase(input);
-    printf("\033[1;34mMasukan Nominal %s yang Ingin Dikonversikan ke %s: \033[0m", (pilihan==1 ? "IDR" : input), (pilihan==1 ? input : "IDR"));
+    printf("\033[1;34mMasukkan Nominal %s yang Ingin Dikonversikan ke %s: \033[0m", (pilihan==1 ? "IDR" : input), (pilihan==1 ? input : "IDR"));
     scanf(" %lf", &nominal);
     cetakHasilKonversi(input, nominal, pilihan==2);
+    printf("\n\033[30m[Klik Enter untuk Kembali ke Menu]\033[0m");
+    getchar();
+    getchar();
+    system("cls");
 }

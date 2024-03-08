@@ -1,8 +1,13 @@
-/*
-* Penanggung Jawab  : AMR FADHILAH ABIYYU ALIF BASYSYAR
-* NIM               : 231524002
-* Kelompok          : A1
-*/
+/**
+ * @file KonversiMataUang.h
+ * @author Penanggung Jawab: AMR FADHILAH ABIYYU ALIF BASYSYAR [ 231524002 ]
+ * @brief Berisi deklarasi fungsi dan prosedur yang digunakan pada fitur Konversi Mata Uang
+ * @version 0.1
+ * @date 2024-03-07
+ * 
+ * @copyright Copyright (c) 2024 AMR FADHILAH ABIYYU ALIF BASYSYAR
+ * 
+ */
 
 #ifndef KONVERSI_MATA_UANG_H
 #define KONVERSI_MATA_UANG_H
