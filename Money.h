@@ -178,4 +178,50 @@ void showSaldoUser(SaldoUser saldoUser);
 
 // ! Struct SaldoUser E N D
 
+// ! Struct User S T A R T
+
+/**
+ * @brief Menampung objek user
+ * 
+ */
+typedef struct User
+{
+    const char *nama = "JAJANG RASING UZUMAKI";
+    SaldoUser saldo;
+    Masuk transaksi_masuk[365];
+    int indeksMasuk = 0;
+    Keluar transaksi_keluar[500];
+    int indeksKeluar = 0;
+} User;
+
+/**
+ * @brief Melakukan transaksi masuk untuk menambah saldo user
+ * 
+ * @param user - Objek user
+ */
+void transaksiMasuk(User *user);
+
+/**
+ * @brief Melakukan transaksi keluar yang akan mengurangi saldo user
+ * 
+ * @param user - Objek user
+ */
+void transaksiKeluar(User *user);
+
+/**
+ * @brief Menampilkan riwayat transaksi masuk
+ * 
+ * @param user - Objek user
+ */
+void showRiwayatMasuk(User user);
+
+/**
+ * @brief Menampilkan riwayat transaksi keluar
+ * 
+ * @param user - Objek user
+ */
+void showRiwayatKeluar(User user);
+
+// ! Struct User E N D
+
 #endif
