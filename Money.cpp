@@ -41,7 +41,9 @@ Tanggal inputTanggal() {
     Tanggal new_tanggal;
     while (!isValidTanggal(tanggal, bulan, tahun))
     {
+
         printf("Masukkan Tanggal Transaksi [Contoh: 01 01 2024] : ");
+
         scanf("%d %d %d", &tanggal, &bulan, &tahun);
 
         if (!isValidTanggal(tanggal, bulan, tahun)) {
@@ -62,7 +64,9 @@ Tanggal inputTanggal() {
  * @param tanggal - Waktu transaksi yang ingin ditampilkan
  */
 void showTanggal(Tanggal tanggal) {
+
     printf("Tanggal Transaksi       :       %d %d %d\n", tanggal.tanggal, tanggal.bulan, tanggal.tahun);
+
 }
 
 // ! Struct Tanggal S T A R T
@@ -362,3 +366,4 @@ void showRiwayatKeluar(User user)
 }
 
 // ! Struct User E N D
+
