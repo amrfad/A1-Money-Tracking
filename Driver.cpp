@@ -9,6 +9,7 @@
  * 
  */
 
+#include <conio.h>
 #include "KonversiMataUang.h"
 #include "RekapHarian.h"
 
@@ -49,11 +50,32 @@ int main() {
         if(i == 1){
             system("cls");
             //banner();
+            printf("\033[1;34mMAU CATAT APA NIH?\033[0m\n");
+            printf("\033[1;32m[1]\033[0m Transaksi Masuk\n");
+            printf("\033[1;32m[2]\033[0m Transaksi Kelauar\n");
+            scanf("%d", &i);
             // TODO : panggil menu catat keuangan
+            if (i == 1) {
+                system("cls");
+                // TODO : transaksi masuk
+                transaksiMasuk(&user);
+            }
+            else if (i == 2) {
+                system("cls");
+                // TODO : transaksi keluar
+                transaksiKeluar(&user);
+            }
+            else {
+                system("cls");
+                main();
+            }
         } else if (i == 2) {
             system("cls");
             //banner();
             // TODO : panggil menu cek saldo
+            showInfo(user);
+            getch();
+            main();
         } else if (i == 3) {
             system("cls");
             //banner();
