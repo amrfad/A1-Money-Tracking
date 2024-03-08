@@ -228,4 +228,7 @@ void rekapBulananKeluar(User user);
 void toUpperCase(char *kata);
 
 void showInfo(User user);
+
+/*Banner*/
+void banner();
 #endif

@@ -15,23 +15,25 @@
 
 int main() {
     /////////////////////////////////////////////////////////////////// DUMMY DATA
-    Tanggal tanggal1 = {23, 4, 4, 2024};
-    Tanggal tanggal2 = {23, 4, 4, 2024};
+    // Tanggal tanggal1 = {23, 4, 4, 2024};
+    // Tanggal tanggal2 = {23, 4, 4, 2024};
     User user;
-    user.transaksi_masuk[0] = {tanggal1, 1, 500000};
-    user.transaksi_masuk[1] = {tanggal2, 0, 450000};
-    user.indeksMasuk += 2;
+    readFromFile(&user);
+    // user.transaksi_masuk[0] = {tanggal1, 1, 500000};
+    // user.transaksi_masuk[1] = {tanggal2, 0, 450000};
+    // user.indeksMasuk += 2;
 
-    user.transaksi_keluar[0] = {tanggal1, 1, 350000, 2};
-    user.transaksi_keluar[1] = {tanggal2, 0, 150000, 3};
-    user.indeksKeluar += 2;
+    // user.transaksi_keluar[0] = {tanggal1, 1, 350000, 2};
+    // user.transaksi_keluar[1] = {tanggal2, 0, 150000, 3};
+    // user.indeksKeluar += 2;
 
-    user.saldo.total = 450000;
+    // user.saldo.total = 450000;
     /////////////////////////////////////////////////////////////////// DUMMY DATA
 
     int i = 5;
     while(i != 0) {
-        //banner();
+        system("cls");
+        banner();
         printf("\033[1;34mSELAMAT DATANG DI APLIKASI MONEY TRACKING!\033[0m\n");
         printf("Halo, \033[33m%s\033[0m. Saldo Totalmu Adalah: \033[36mRp. ", user.nama);
         formatMataUang(user.saldo.total);
@@ -49,57 +51,61 @@ int main() {
         scanf(" %d", &i);
         if(i == 1){
             system("cls");
-            //banner();
-            printf("\033[1;34mMAU CATAT APA NIH?\033[0m\n");
-            printf("\033[1;32m[1]\033[0m Transaksi Masuk\n");
-            printf("\033[1;32m[2]\033[0m Transaksi Kelauar\n");
-            scanf("%d", &i);
-            // TODO : panggil menu catat keuangan
-            if (i == 1) {
-                system("cls");
-                // TODO : transaksi masuk
-                transaksiMasuk(&user);
-            }
-            else if (i == 2) {
-                system("cls");
-                // TODO : transaksi keluar
-                transaksiKeluar(&user);
-            }
-            else {
-                system("cls");
-                main();
-            }
+            banner();
+            catatKeuangan(&user);
+            getch();
+            system("cls");
+            // printf("\033[1;34mMAU CATAT APA NIH?\033[0m\n");
+            // printf("\033[1;32m[1]\033[0m Transaksi Masuk\n");
+            // printf("\033[1;32m[2]\033[0m Transaksi Kelauar\n");
+            // scanf("%d", &i);
+            // // TODO : panggil menu catat keuangan
+            // if (i == 1) {
+            //     system("cls");
+            //     // TODO : transaksi masuk
+            //     transaksiMasuk(&user);
+            // }
+            // else if (i == 2) {
+            //     system("cls");
+            //     // TODO : transaksi keluar
+            //     transaksiKeluar(&user);
+            // }
+            // else {
+            //     system("cls");
+            //     main();
+            // }
         } else if (i == 2) {
             system("cls");
-            //banner();
+            banner();
             // TODO : panggil menu cek saldo
             showInfo(user);
             getch();
-            main();
+            system("cls");
         } else if (i == 3) {
             system("cls");
-            //banner();
+            banner();
             tampilMenuRekapHarian(user);
         } else if (i == 4) {
             system("cls");
-            //banner();
+            banner();
             // TODO : panggil menu rekap per pekan
-            tampilMenuRekapPekanan(user);
         } else if (i == 5) {
             system("cls");
-            //banner();
+            banner();
             // TODO : panggil menu rekap per bulan
         } else if (i == 6) {
             system("cls");
-            //banner();
+            banner();
+            displayDetailTransaksi(&user);
+            getch();
             // TODO : panggil menu load data
         } else if (i == 7) {
             system("cls");
-            //banner();
+            banner();
             tampilMenuKonversi();
         } else if (i == 8) {
             system("cls");
-            //banner();
+            banner();
             printf("\033[1;34mMAU LIHAT APA NIH?\033[0m\n");
             printf("\033[1;32m[1]\033[0m Riwayat Transaksi Masuk\n");
             printf("\033[1;32m[1]\033[0m Riwayat Transaksi Keluar\n");
@@ -112,12 +118,11 @@ int main() {
                 showRiwayatKeluar(user);
             } else {
                 system("cls");
-                main();
             }
             
         } else if (i == 0) {
             system("cls");
-            //banner();
+            banner();
             printf("\033[1;32mSelamat Tinggal...\033[0m\n");
             break;
         } else {

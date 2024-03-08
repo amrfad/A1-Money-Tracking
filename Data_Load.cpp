@@ -22,6 +22,7 @@ void readFromFile(User *user)
 
 void displayDetailTransaksi(User *user)
 {
+    readFromFile(user);
     printf("\n========= \033[32mDETAIL TRANSAKSI\033[0m =========\n\n");
     printf("Jumlah Transaksi Masuk: %d\n", user->indeksMasuk);
     printf("Jumlah Transaksi Keluar: %d\n\n", user->indeksKeluar);
