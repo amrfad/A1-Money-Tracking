@@ -3,7 +3,7 @@
 
 #include <string.h>
 
-/*  */
+/* Prototype prosedur toUpperCase */
 void toUpperCase(char *kata);
 
 #endif
