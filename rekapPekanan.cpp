@@ -253,14 +253,4 @@ void tampilMenuRekapPekanan(User user) {
             rekapPekananKeluar(user);
             break;
     }
-    
-    // Tanggal tanggalRekap;
-    // printf("\033[1;34mMasukkan Tanggal yang Ingin Direkap \033[30m[Contoh: 23/04/2024]\033[1;34m: \033[0m");
-    // scanf(" %02d/%02d/%d", &(tanggalRekap.tanggal), &(tanggalRekap.bulan), &(tanggalRekap.tahun));
-    // system("cls");
-    // tab[choice - 1](user, tanggalRekap);
-    // printf("\033[36m[Klik Enter untuk Kembali ke Menu]\033[0m");
-    // getchar();
-    // getchar();
-    // system("cls");
 }

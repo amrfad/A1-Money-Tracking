@@ -217,3 +217,24 @@ void rekapBulananKeluar(User user) {
     printf("Ketik apapun untuk kembali ke menu awal.");
     getchar();
 }
+
+
+void tampilMenuRekapBulanan(User user) {
+    // void(*tab[2])(User user, Tanggal tanggalRekap) = {&rekapPekananMasuk, &rekapPekananKeluar};
+    printf("\033[1;34mPilihan Mode Rekap Bulanan:\033[0m\n");
+    printf("\033[1;32m[1]\033[0m Rekap Bulanan Transaksi Masuk\n");
+    printf("\033[1;32m[2]\033[0m Rekap Bulanan Transaksi Keluar\n");
+    printf("\033[1;34mPilih Mode: \033[0m");
+    int choice;
+    scanf(" %d", &choice);
+
+    switch (choice)
+    {
+        case 1:
+            rekapBulananMasuk(user);
+            break;
+        case 2:
+            rekapBulananKeluar(user);
+            break;
+    }
+}

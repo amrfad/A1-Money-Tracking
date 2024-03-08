@@ -89,10 +89,12 @@ int main() {
             system("cls");
             banner();
             // TODO : panggil menu rekap per pekan
+            tampilMenuRekapPekanan(user);
         } else if (i == 5) {
             system("cls");
             banner();
             // TODO : panggil menu rekap per bulan
+            tampilMenuRekapBulanan(user);
         } else if (i == 6) {
             system("cls");
             banner();

@@ -221,6 +221,7 @@ void rekapPekananKeluar(User user);
 
 
 /*Rekap Bulanan*/
+void tampilMenuRekapBulanan(User user);
 void rekapBulananMasuk(User user);
 void rekapBulananKeluar(User user);
 /*End Rekap Bulanan*/
