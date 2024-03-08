@@ -99,6 +99,9 @@ void showKeluar(Keluar transaksi_keluar) {
     printf("***************\n");
 }
 
+
+// dari Reqi
+
 void catatTransaksiKeluar(User *user) {
 	if (user->indeksKeluar < MAX_KELUAR)
 	{

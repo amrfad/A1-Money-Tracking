@@ -1,21 +1,5 @@
-#ifndef User_H
-#define User_H
-
 #include <stdio.h>
-#include "SaldoUser.h"
-#include "Masuk.h"
-#include "Keluar.h"
-#include "Tanggal.h"
-
-typedef struct User
-{
-    const char *nama = "JAJANG RASING UZUMAKI";
-    SaldoUser saldo;
-    Masuk transaksi_masuk[365];
-    int indeksMasuk = 0;
-    Keluar transaksi_keluar[500];
-    int indeksKeluar = 0;
-} User;
+#include "header.h"
 
 void showInfo(User user)
 {
@@ -26,7 +10,8 @@ void showInfo(User user)
 
 void transaksiMasuk(User *user)
 {
-    Masuk transaksiMasuk = inputMasuk();
+    // Masuk transaksiMasuk = inputMasuk();
+    catatTransaksiMasuk(user);
     saldoMasuk(&user->saldo, transaksiMasuk);
     user->transaksi_masuk[user->indeksMasuk] = transaksiMasuk;
     user->indeksMasuk = (user->indeksMasuk + 1) % 365;
@@ -67,5 +52,3 @@ void showRiwayatKeluar(User user)
         showKeluar(user.transaksi_keluar[i]);
     }
 }
-
-#endif
