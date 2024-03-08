@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-#include "money.h"
-#include "Tanggal.h"
+#include "Money.h"
 
 #define MAX_MASUK 365
 #define MAX_KELUAR 730
@@ -38,11 +37,11 @@ void readFromFileKeluar(User *user)
 void displayDetailTransaksi(User *user)
 {
     printf("\n========= DETAIL TRANSAKSI =========\n");
-    printf("Jumlah Transaksi Masuk: %d\n", user->jumlahTransaksiMasuk);
-    printf("Jumlah Transaksi Keluar: %d\n\n", user->jumlahTransaksiKeluar);
+    printf("Jumlah Transaksi Masuk: %d\n", user->indeksMasuk);
+    printf("Jumlah Transaksi Keluar: %d\n\n", user->indeksKeluar);
 
     printf("===== Transaksi Masuk =====\n");
-    for (int i = 0; i < user->jumlahTransaksiMasuk; i++)
+    for (int i = 0; i < user->indeksMasuk; i++)
     {
         printf("Transaksi ke-%d\n", i + 1);
 		showTanggal(user->transaksi_masuk[i].waktu);
@@ -51,7 +50,7 @@ void displayDetailTransaksi(User *user)
     }
 
     printf("===== Transaksi Keluar =====\n");
-    for (int i = 0; i < user->jumlahTransaksiKeluar; i++)
+    for (int i = 0; i < user->indeksKeluar; i++)
     {
         printf("Transaksi ke-%d\n", i + 1);
         showTanggal(user->transaksi_keluar[i].waktu);
@@ -64,11 +63,17 @@ void displayDetailTransaksi(User *user)
             printf("Makanan\n\n");
             break;
         case 2:
-            printf("Transaksi\n\n");
+            printf("Transportasi\n\n");
             break;
         case 3:
             printf("Hiburan\n\n");
             break;
+        case 4:
+        	printf("Tagihan\n\n");
+        	break;
+        case 5:
+        	printf("Lain-lain\n\n");
+        	break;
         default:
             printf("Tidak Diketahui\n\n");
             break;

@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include "Money.h"
-//#include "Tanggal.h"
-#include "Pemasukan.h"
+
 
 #define MAX_MASUK 365
 #define MAX_KELUAR 730
@@ -38,7 +37,7 @@ void catatKeuangan(User *user){
 }
 
 void catatTransaksiMasuk(User *user){
-	if (user->jumlahTransaksiMasuk < MAX_MASUK)
+	if (user->indeksMasuk < MAX_MASUK)
 	{
 		Tanggal waktu_transaksi;
 		Masuk transaksi;
@@ -66,8 +65,8 @@ void catatTransaksiMasuk(User *user){
 		scanf("%f", &transaksi.nominal);
 		
 		
-		user->transaksi_masuk[user->jumlahTransaksiMasuk] = transaksi;
-		user->jumlahTransaksiMasuk++;
+		user->transaksi_masuk[user->indeksMasuk] = transaksi;
+		user->indeksMasuk++;
 		
 		if(transaksi.sumber_dana == 1 )	//Dompet digital
 		{
@@ -80,7 +79,7 @@ void catatTransaksiMasuk(User *user){
 		
 		user->saldo.total += transaksi.nominal;	
 		
-		displayTrMasuk(user->transaksi_masuk[user->jumlahTransaksiMasuk]);
+		displayTrMasuk(user->transaksi_masuk[user->indeksMasuk]);
 	}
 }
 
@@ -120,7 +119,7 @@ void saveToFileMasuk(User *user)
 }
 
 void catatTransaksiKeluar(User *user){
-	if (user->jumlahTransaksiKeluar < MAX_KELUAR)
+	if (user->indeksKeluar < MAX_KELUAR)
 	{
 		Tanggal waktu_transaksi;
 		Keluar transaksi;
@@ -168,8 +167,8 @@ void catatTransaksiKeluar(User *user){
 		fflush(stdin);
 		
 		
-		user->transaksi_keluar[user->jumlahTransaksiKeluar] = transaksi;
-		user->jumlahTransaksiKeluar++;
+		user->transaksi_keluar[user->indeksKeluar] = transaksi;
+		user->indeksKeluar++;
 		
 		if(transaksi.sumber_dana == 1 )	//Dompet digital
 		{
@@ -181,7 +180,7 @@ void catatTransaksiKeluar(User *user){
 		}
 		user->saldo.total -= transaksi.nominal;	
 		
-		displayTrKeluar(user->transaksi_keluar[user->jumlahTransaksiKeluar]);
+		displayTrKeluar(user->transaksi_keluar[user->indeksKeluar]);
 	}
 }
 
