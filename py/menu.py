@@ -5,7 +5,17 @@ class Menu:
     def __init__(self):
         self.choice = 0
         pass
-    def tampilMenu(self):
+
+    def tampilMenu(self) -> None:
+        """
+        Menampilkan menu utama dan alur utama program
+
+        Args:
+            self
+
+        Returns:
+            none
+        """
         while (self.choice == 0):
             system("cls")
             self.banner()
