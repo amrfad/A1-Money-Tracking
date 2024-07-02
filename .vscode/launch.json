@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/rafif/OneDrive - Politeknik Negeri Bandung/sem 2/Semester 2/Proyek 1/Pertemuan 5/Money-Tracking/A1-Money-Tracking/c",
-      "program": "c:/Users/rafif/OneDrive - Politeknik Negeri Bandung/sem 2/Semester 2/Proyek 1/Pertemuan 5/Money-Tracking/A1-Money-Tracking/c/build/Debug/outDebug",
+      "cwd": "c:/Users/rafif/OneDrive - Politeknik Negeri Bandung/sem 2/Semester 2/Proyek 1/Pertemuan 5/Money-Tracking/A1-Money-Tracking/src",
+      "program": "c:/Users/rafif/OneDrive - Politeknik Negeri Bandung/sem 2/Semester 2/Proyek 1/Pertemuan 5/Money-Tracking/A1-Money-Tracking/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
