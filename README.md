@@ -20,3 +20,8 @@ Tugas ini dibuat untuk memenuhi tugas praktikum mata kuliah Proyek 1.
 4. Muhammad Rafif Genadratama
    - Rekap Pekanan
    - Rekap Bulanan
+
+### Cara Menjalankan
+1. Download repository ini sebagai zip
+2. Ekstrak di folder yang Anda inginkan
+3. Jalankan run.exe
